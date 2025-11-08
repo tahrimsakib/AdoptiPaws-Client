@@ -49,18 +49,18 @@ const Footer = () => {
             <div className="flex flex-col gap-2">
               <h3 className="font-semibold mb-2">Follow Us</h3>
               <div className="flex gap-4 mt-1 ">
-                <Link className="hover:text-[#ff6d2d]" to={"facebook.com"}>
+                <Link className="hover:text-[#ff6d2d]" to={"https://www.facebook.com/"}>
                   <FaFacebook size={20} />{" "}
                 </Link>
-                <Link className="hover:text-[#ff6d2d]" to={"facebook.com"}>
+                <Link className="hover:text-[#ff6d2d]" to={"https://x.com/home"}>
                   {" "}
                   <FaXTwitter size={20} />{" "}
                 </Link>
-                <Link className="hover:text-[#ff6d2d]" to={"facebook.com"}>
+                <Link className="hover:text-[#ff6d2d]" to={"https://www.pinterest.com/"}>
                   {" "}
                   <FaPinterest size={20} />{" "}
                 </Link>
-                <Link className="hover:text-[#ff6d2d]" to={"facebook.com"}>
+                <Link className="hover:text-[#ff6d2d]" to={"https://www.instagram.com/"}>
                   {" "}
                   <FaInstagram size={20} />{" "}
                 </Link>

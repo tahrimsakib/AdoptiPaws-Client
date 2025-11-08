@@ -7,7 +7,7 @@ const Login = () => {
       <div className="bg-white dark:bg-neutral-900 shadow-xl rounded-2xl p-12 w-full max-w-lg transition-colors duration-300">
         <h2 className="text-3xl font-bold text-center mb-10 text-[#ff6d2d]">
           Login Now!
-          <p className="text-xl font-light !text-white font2">
+          <p className="text-xl font-light text-black dark:text-white font2">
             Welcome back to AdoptiPaws
           </p>
         </h2>

@@ -8,6 +8,7 @@ import MyOrders from "../Pages/MyOrders";
 import Login from "../Pages/auth/Login";
 import Register from "../Pages/auth/Register";
 import AuthLayout from "../Layouts/AuthLayout";
+import Error from "../Pages/error/Error";
 
 export const router = createBrowserRouter([
   {
@@ -49,5 +50,9 @@ export const router = createBrowserRouter([
         Component: Register,
       },
     ],
+  },
+  {
+    path: "/*",
+    Component: Error,
   },
 ]);
