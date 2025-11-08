@@ -71,8 +71,10 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navlink}</ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="space-x-2 navbar-end">
+        <MyNavLink  to={'/auth/login'}>Login</MyNavLink>
+        <MyNavLink  to={'/auth/register'}>Register</MyNavLink>
+
         <label className="toggle text-base-content">
           <input
             onChange={(e) => handleTheme(e.target.checked)}

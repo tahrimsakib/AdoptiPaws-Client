@@ -5,6 +5,9 @@ import AllPats from "../Pages/AllPats";
 import AddListing from "../Pages/AddListing";
 import MyListings from "../Pages/MyListings";
 import MyOrders from "../Pages/MyOrders";
+import Login from "../Pages/auth/Login";
+import Register from "../Pages/auth/Register";
+import AuthLayout from "../Layouts/AuthLayout";
 
 export const router = createBrowserRouter([
   {
@@ -33,5 +36,18 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  
+  {
+    path: "auth",
+    Component: AuthLayout,
+    children: [
+      {
+        path: "/auth/login",
+        Component: Login,
+      },
+      {
+        path: "/auth/register",
+        Component: Register,
+      },
+    ],
+  },
 ]);
