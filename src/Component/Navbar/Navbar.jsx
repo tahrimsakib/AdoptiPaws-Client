@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import MyNavLink from "./MyNavlink";
+import { Link } from "react-router";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -12,6 +14,26 @@ const Navbar = () => {
   const handleTheme = (checked) => {
     setTheme(checked ? "dark" : "light");
   };
+
+  const navlink = (
+    <>
+      <li>
+        <MyNavLink to="/">Home</MyNavLink>
+      </li>
+      <li>
+        <MyNavLink to="/pets-supplies">Pets & Supplies</MyNavLink>
+      </li>
+      <li>
+        <MyNavLink to="/add-listing">Add Listing</MyNavLink>
+      </li>
+      <li>
+        <MyNavLink to="/my-listings">My Listings</MyNavLink>
+      </li>
+      <li>
+        <MyNavLink to="/my-orders">My Orders</MyNavLink>
+      </li>
+    </>
+  );
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -38,49 +60,16 @@ const Navbar = () => {
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+            {navlink}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+      <figure>
+        <img className="w-8 rounded-[10px]" src="/public/Gemini_Generated_Image_llkghsllkghsdfllkg.png" alt="" />
+      </figure>
+      <Link className="text-2xl ml-2 text-[#ff6d2d]" to={'/'}>AdoptiPaws</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navlink}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Button</a>
