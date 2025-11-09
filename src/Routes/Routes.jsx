@@ -22,6 +22,7 @@ export const router = createBrowserRouter([
       {
         path: "/pets-supplies",
         Component: AllPats,
+        loader:()=>fetch('http://localhost:3000/listings')
       },
       {
         path: "/add-listing",

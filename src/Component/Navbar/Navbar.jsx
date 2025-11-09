@@ -63,17 +63,32 @@ const Navbar = () => {
             {navlink}
           </ul>
         </div>
-      <figure>
-        <img className="w-8 rounded-[10px]" src="/public/Gemini_Generated_Image_llkghsllkghsdfllkg.png" alt="" />
-      </figure>
-      <Link className="text-2xl ml-2 text-[#ff6d2d]" to={'/'}>AdoptiPaws</Link>
+        <figure>
+          <img
+            className="w-8 rounded-[10px]"
+            src="/public/Gemini_Generated_Image_llkghsllkghsdfllkg.png"
+            alt=""
+          />
+        </figure>
+        <Link
+          to="/"
+          className="ml-2 text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#ff8a5b] via-[#ffb37a] to-[#ffd3a3] bg-clip-text text-transparent drop-shadow-[0_1px_3px_rgba(255,138,91,0.35)] hover:drop-shadow-[0_2px_6px_rgba(255,138,91,0.55)] hover:scale-105 transition-all duration-300 ease-out flex items-center gap-1"
+        >
+          <span className="italic">Adopti</span>
+          <span className="font-bold text-[#ff844a] dark:text-[#ff9c5a]">
+            Paws
+          </span>
+          <span className="animate-[heartbeat_1.8s_ease-in-out_infinite] text-lg">
+            🐾
+          </span>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navlink}</ul>
       </div>
       <div className="space-x-2 navbar-end">
-        <MyNavLink  to={'/auth/login'}>Login</MyNavLink>
-        <MyNavLink  to={'/auth/register'}>Register</MyNavLink>
+        <MyNavLink to={"/auth/login"}>Login</MyNavLink>
+        <MyNavLink to={"/auth/register"}>Register</MyNavLink>
 
         <label className="toggle text-base-content">
           <input

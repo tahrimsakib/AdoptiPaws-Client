@@ -4,7 +4,6 @@ const Healthcare = () => {
   return (
     <section className="py-20 dark:from-gray-900 dark:to-gray-950">
       <div className="flex flex-col md:flex-row items-center gap-17 max-w-11/12 ml-0 mr-auto">
-        {/* Left Image - Flush Left */}
         <div className="w-full md:w-2/3 relative">
           <img
             src="https://images.pexels.com/photos/16196272/pexels-photo-16196272.jpeg"
@@ -14,7 +13,6 @@ const Healthcare = () => {
           <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-[#ff6d2d] rounded-full blur-3xl opacity-40"></div>
         </div>
 
-        {/* Right Content */}
         <div className="w-full md:w-1/2 space-y-6 pr-6">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white">
             <span className="border-b-4 border-[#ff6d2d] pb-1">Pet</span> Health

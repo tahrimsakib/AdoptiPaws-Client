@@ -20,8 +20,17 @@ const Footer = () => {
                   alt=""
                 />
               </figure>
-              <Link className="text-2xl ml-2 text-[#ff6d2d]" to={"/"}>
-                AdoptiPaws
+              <Link
+                to="/"
+                className="ml-2 text-3xl font-semibold tracking-tight bg-gradient-to-r from-[#ff8a5b] via-[#ffb37a] to-[#ffd3a3] bg-clip-text text-transparent drop-shadow-[0_1px_3px_rgba(255,138,91,0.35)] hover:drop-shadow-[0_2px_6px_rgba(255,138,91,0.55)] hover:scale-105 transition-all duration-300 ease-out flex items-center gap-1"
+              >
+                <span className="italic">Adopti</span>
+                <span className="font-bold text-[#ff844a] dark:text-[#ff9c5a]">
+                  Paws
+                </span>
+                <span className="animate-[heartbeat_1.8s_ease-in-out_infinite] text-lg">
+                  🐾
+                </span>
               </Link>
             </div>
             <p className="text-gray-400 max-w-xs text-[17px] mt-2 font2">
@@ -49,18 +58,30 @@ const Footer = () => {
             <div className="flex flex-col gap-2">
               <h3 className="font-semibold mb-2">Follow Us</h3>
               <div className="flex gap-4 mt-1 ">
-                <Link className="hover:text-[#ff6d2d]" to={"https://www.facebook.com/"}>
+                <Link
+                  className="hover:text-[#ff6d2d]"
+                  to={"https://www.facebook.com/"}
+                >
                   <FaFacebook size={20} />{" "}
                 </Link>
-                <Link className="hover:text-[#ff6d2d]" to={"https://x.com/home"}>
+                <Link
+                  className="hover:text-[#ff6d2d]"
+                  to={"https://x.com/home"}
+                >
                   {" "}
                   <FaXTwitter size={20} />{" "}
                 </Link>
-                <Link className="hover:text-[#ff6d2d]" to={"https://www.pinterest.com/"}>
+                <Link
+                  className="hover:text-[#ff6d2d]"
+                  to={"https://www.pinterest.com/"}
+                >
                   {" "}
                   <FaPinterest size={20} />{" "}
                 </Link>
-                <Link className="hover:text-[#ff6d2d]" to={"https://www.instagram.com/"}>
+                <Link
+                  className="hover:text-[#ff6d2d]"
+                  to={"https://www.instagram.com/"}
+                >
                   {" "}
                   <FaInstagram size={20} />{" "}
                 </Link>
