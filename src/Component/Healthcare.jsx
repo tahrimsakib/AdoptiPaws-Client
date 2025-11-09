@@ -19,7 +19,7 @@ const Healthcare = () => {
             Care
           </h2>
 
-          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed font2">
+          <p className="text-base md:text-lg text-gray-500 dark:text-gray-300 leading-relaxed font2">
             Healthy pets, happy homes! From routine checkups to preventive
             wellness and expert care,{" "}
             <span className="text-[#ff6d2d] font-semibold">AdoptiPaws</span>{" "}

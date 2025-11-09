@@ -31,16 +31,16 @@ const PetsDetails = () => {
             </span>
           </p>
 
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 font2">
+          <p className="text-lg leading-relaxed text-gray-500 dark:text-gray-300 font2">
             {item.description ||
-              "Every pet deserves love, care, and a cozy home. "}
+              "Every pet deserves love, care, and a cozy home."}
           </p>
 
-          <div className="flex items-center justify-between text-lg font-semibold text-gray-900 dark:text-white pt-3">
+          <div className="flex items-center justify-baseline gap-7 text-lg font-semibold text-gray-900 dark:text-white pt-3">
             <p>
-              <span className="text-[#ff6d2d]">Price ${item.price}</span>
+              <span className="text-[#ff6d2d]">Price : ${item.price}</span>
             </p>
-            <p> {item.location}</p>
+            <p className="text-gray-800"> {item.location}</p>
           </div>
 
           <button className="w-full md:w-auto mt-8 px-10 py-3 bg-gradient-to-r from-[#e48c59] to-[#ff6d2d] text-white font-semibold rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#ff6d2d]/40">
