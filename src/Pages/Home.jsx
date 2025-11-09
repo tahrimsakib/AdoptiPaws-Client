@@ -1,11 +1,16 @@
-import React from 'react';
+import React from "react";
+import Category from "../Component/Category";
+import Slider from "../Component/Slider";
 
 const Home = () => {
-      return (
-            <div>
-                  <h1>home</h1>
-            </div>
-      );
+  return (
+    <div>
+      <Slider />
+      <section className="max-w-10/12 mx-auto">
+            <Category />
+      </section>
+    </div>
+  );
 };
 
 export default Home;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Error = () => {
   return (
@@ -16,12 +17,10 @@ const Error = () => {
       </p>
 
       {/* Back Home Button */}
-      <a
-        href="/"
-        className="bg-[#ff6d2d] hover:bg-[#e65c1d] text-white dark:text-white font-medium py-3 px-6 rounded-lg transition-colors"
+      <Link to={'/'} className="bg-[#ff6d2d] hover:bg-[#e65c1d] text-white dark:text-white font-medium py-3 px-6 rounded-lg transition-colors"
       >
         Go Back Home
-      </a>
+      </Link>
     </div>
   );
 };

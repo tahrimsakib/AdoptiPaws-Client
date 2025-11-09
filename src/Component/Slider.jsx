@@ -52,7 +52,7 @@ const Slider = () => {
               className="w-full h-full object-cover "
             />
             <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white text-center">
-              <h2 className="text-7xl font-bold mb-2">{slide.title}</h2>
+              <h2 className="text-2xl md:text-5xl lg:text-7xl font-bold mb-2">{slide.title}</h2>
               <p className="text-lg">{slide.subtitle}</p>
             </div>
           </div>
