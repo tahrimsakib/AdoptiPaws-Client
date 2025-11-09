@@ -21,7 +21,7 @@ const Navbar = () => {
         <MyNavLink to="/">Home</MyNavLink>
       </li>
       <li>
-        <MyNavLink to="/pets-supplies">Pets & Supplies</MyNavLink>
+        <MyNavLink to="/pets">Pets & Supplies</MyNavLink>
       </li>
       <li>
         <MyNavLink to="/add-listing">Add Listing</MyNavLink>
@@ -36,7 +36,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "react-router";
 
 const AllPets = () => {
   const data = useLoaderData();
+  console.log(data);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const categories = ["All", ...new Set(data.map((item) => item.category))];
@@ -13,11 +14,8 @@ const AllPets = () => {
 
   return (
     <section className="max-w-11/12 mx-auto px-5 py-16 relative">
-      {/* Soft background blobs */}
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-gradient-to-br from-[#ffd1b3]/60 to-[#ff6d2d]/40 blur-3xl rounded-full opacity-70 -z-10"></div>
       <div className="absolute -bottom-24 -right-16 w-72 h-72 bg-gradient-to-tr from-[#ffe0cc]/60 to-[#ff6d2d]/30 blur-3xl rounded-full opacity-60 -z-10"></div>
-
-      {/* Header */}
       <div className="text-center mb-10">
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-3">
           <span className="bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
@@ -30,8 +28,6 @@ const AllPets = () => {
           healthy
         </p>
       </div>
-
-      {/* Category Filter */}
       <div className="flex flex-col lg:flex-row justify-center mb-10 gap-4">
         {categories.map((category) => (
           <button
@@ -48,13 +44,12 @@ const AllPets = () => {
         ))}
       </div>
 
-      {/* Grid Layout */}
       {filteredData.length > 0 ? (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredData.map((item) => (
             <div
               key={item._id}
-              className="group bg-white dark:bg-gray-800 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-transparent hover:border-[#ff6d2d]/40 relative"
+              className="group bg-white dark:bg-gray-800 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-transparent hover:border-[#ff6d2d] relative"
             >
               <img
                 src={item.image}
@@ -73,14 +68,12 @@ const AllPets = () => {
                 </p>
 
                 <Link
-                  to={`/product/${item._id}`}
+                  to={`/pets/${item._id}`}
                   className="inline-block mt-3 px-5 py-2 bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] text-white text-sm rounded-full font-medium hover:shadow-md transition-all"
                 >
                   See Details →
                 </Link>
               </div>
-
-              {/* Cute paw badge */}
               <div className="absolute top-4 right-4 bg-[#fff3ec] dark:bg-gray-700 text-[#ff6d2d] text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
                 {item.category}
               </div>

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../Pages/Home";
-import AllPats from "../Pages/AllPats";
+import AllPats from "../Pages/Pets/AllPats";
 import AddListing from "../Pages/AddListing";
 import MyListings from "../Pages/MyListings";
 import MyOrders from "../Pages/MyOrders";
@@ -9,6 +9,7 @@ import Login from "../Pages/auth/Login";
 import Register from "../Pages/auth/Register";
 import AuthLayout from "../Layouts/AuthLayout";
 import Error from "../Pages/error/Error";
+import PetsDetails from "../Pages/Pets/PetsDetails";
 
 export const router = createBrowserRouter([
   {
@@ -18,11 +19,18 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: () => fetch("http://localhost:3000/latest-pets"),
       },
       {
-        path: "/pets-supplies",
+        path: "/pets",
         Component: AllPats,
-        loader:()=>fetch('http://localhost:3000/listings')
+        loader: () => fetch("http://localhost:3000/pets"),
+      },
+      {
+        path: "/pets/:id",
+        Component: PetsDetails,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/pets/${params.id}`),
       },
       {
         path: "/add-listing",

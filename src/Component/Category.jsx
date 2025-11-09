@@ -11,7 +11,7 @@ const Category = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
         {/* Pets (Adoption) */}
         <Link
-          to={"/"}
+          to={"/pets"}
           className="bg-white dark:bg-gray-800 border border-gray-400 shadow-md rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#ff6d2d] hover:scale-105 transition-transform duration-300"
         >
           <div className="text-5xl mb-3">🐾</div>
