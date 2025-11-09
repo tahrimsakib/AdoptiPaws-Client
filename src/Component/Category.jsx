@@ -4,15 +4,15 @@ import { Link } from "react-router";
 const Category = () => {
   return (
     <div className="py-12 bg-gray-50">
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 ">
-        Categories
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-15">
+        <span className="border-b-4 border-[#ff6d2d] pb-1">Cat</span>egories
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-4 ">
         {/* Pets (Adoption) */}
         <Link
           to={"/"}
-          className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition hover:border-1 border-[#ff6d2d]"
+          className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition hover:border-1 border-[#ff6d2d] hover:scale-105 transition-transform duration-300"
         >
           <div className="text-5xl mb-3">🐾</div>
           <h3 className="text-xl font-semibold">Pets (Adoption)</h3>
@@ -25,7 +25,7 @@ const Category = () => {
         {/* Pet Food */}
         <Link
           to={"/"}
-          className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition transition hover:border-1 border-[#ff6d2d]"
+          className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition hover:border-1 border-[#ff6d2d] hover:scale-105 transition-transform duration-300"
         >
           <div className="text-5xl mb-3">🍖</div>
           <h3 className="text-xl font-semibold">Pet Food</h3>
@@ -38,7 +38,7 @@ const Category = () => {
         {/* Accessories */}
         <Link
           to={"/"}
-          className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition transition hover:border-1 border-[#ff6d2d]"
+          className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition  hover:border-1 border-[#ff6d2d] hover:scale-105 transition-transform duration-300"
         >
           <div className="text-5xl mb-3">🎽</div>
           <h3 className="text-xl font-semibold">Accessories</h3>
@@ -51,7 +51,7 @@ const Category = () => {
         {/* Pet Care Products */}
         <Link
           to={"/"}
-          className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition transition hover:border-1 border-[#ff6d2d]"
+          className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition  hover:border-1 border-[#ff6d2d] hover:scale-105 transition-transform duration-300"
         >
           <div className="text-5xl mb-3">🧴</div>
           <h3 className="text-xl font-semibold">Pet Care Products</h3>
