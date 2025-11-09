@@ -14,7 +14,9 @@ const Home = () => {
       <section className="max-w-10/12 mx-auto">
         <MeetTeam />
       </section>
-      
+      <section className="">
+        <Healthcare />
+      </section>
     </div>
   );
 };

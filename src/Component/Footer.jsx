@@ -74,7 +74,7 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="text-center text-gray-500 dark:text-gray-400 text-[17px] font2 ">
-          @ 2025 PawMart. All rights reserved.
+          @ 2025 AdoptiPaws. All rights reserved.
         </div>
       </div>
     </footer>
