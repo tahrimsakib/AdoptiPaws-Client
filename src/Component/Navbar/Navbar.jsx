@@ -86,7 +86,7 @@ const Navbar = () => {
         <figure>
           <img
             className="w-8 rounded-[10px]"
-            src="/public/Gemini_Generated_Image_llkghsllkghsdfllkg.png"
+            src="/public/Gemini_Generated_Image_llkghsllkghsdfllkg.jpg"
             alt=""
           />
         </figure>
@@ -114,7 +114,7 @@ const Navbar = () => {
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full">
+              <div className="w-8 rounded-full">
                 <img src={user.photoURL} alt={user.displayName} />
               </div>
             </div>
@@ -144,7 +144,7 @@ const Navbar = () => {
           </>
         )}
 
-        <label className="toggle text-base-content">
+        <label className="toggle w-10 text-base-content">
           <input
             onChange={(e) => handleTheme(e.target.checked)}
             type="checkbox"

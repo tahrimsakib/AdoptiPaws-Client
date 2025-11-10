@@ -30,6 +30,7 @@ const AddListing = () => {
       .then((data) => {
         toast.success("Successfully added!");
         console.log(data);
+        e.target.reset();
       })
       .catch((err) => {
         console.log(err);
@@ -50,7 +51,6 @@ const AddListing = () => {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Product / Pet Name */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Product / Pet Name
@@ -64,7 +64,6 @@ const AddListing = () => {
             />
           </div>
 
-          {/* Category */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Category
@@ -78,11 +77,10 @@ const AddListing = () => {
               <option value="Pets">Pets</option>
               <option value="Food">Food</option>
               <option value="Accessories">Accessories</option>
-              <option value="Care Products">Care Products</option>
+              <option value="Care Products">Pet Care Products</option>
             </select>
           </div>
 
-          {/* Price */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Price (use 0 if pet)
@@ -91,13 +89,13 @@ const AddListing = () => {
               type="number"
               name="price"
               min="0"
+              step="any"
               placeholder="Enter price"
               required
               className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-[#ff6d2d] outline-none"
             />
           </div>
 
-          {/* Location */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Location
@@ -111,7 +109,6 @@ const AddListing = () => {
             />
           </div>
 
-          {/* Description */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Description
@@ -125,7 +122,6 @@ const AddListing = () => {
             ></textarea>
           </div>
 
-          {/* Image URL */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Image URL
@@ -139,7 +135,6 @@ const AddListing = () => {
             />
           </div>
 
-          {/* Email */}
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Your Email
@@ -153,7 +148,6 @@ const AddListing = () => {
             />
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full mt-4 py-3 text-white font-semibold bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all"
