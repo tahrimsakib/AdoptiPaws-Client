@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 
 const Recent6 = ({ item }) => {
-  console.log(item);
+  // console.log(item);
 
   return (
     <div>

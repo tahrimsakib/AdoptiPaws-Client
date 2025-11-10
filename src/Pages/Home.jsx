@@ -8,8 +8,7 @@ import Recent6 from "../Component/Recent6";
 
 const Home = () => {
   const data = useLoaderData();
-
-  console.log(data);
+  // console.log(data);
 
   return (
     <div>

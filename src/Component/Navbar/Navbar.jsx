@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import MyNavLink from "./MyNavlink";
 import { Link } from "react-router";
+import { AuthContext } from "../../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext);
+
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
@@ -13,6 +17,16 @@ const Navbar = () => {
 
   const handleTheme = (checked) => {
     setTheme(checked ? "dark" : "light");
+  };
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast("You Logged Out successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const navlink = (
@@ -87,8 +101,42 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navlink}</ul>
       </div>
       <div className="space-x-2 navbar-end">
-        <MyNavLink to={"/auth/login"}>Login</MyNavLink>
-        <MyNavLink to={"/auth/register"}>Register</MyNavLink>
+        {user ? (
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img src={user.photoURL} alt={user.displayName} />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1000] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <Link>
+                <p className="btn btn-sm w-full font-semibold text-gray-700 text-center hover:text-gray-900 transition ">
+                  {user.displayName || "User"}
+                </p>
+              </Link>
+              <li>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-sm bg-red-500 text-white hover:bg-red-700 mt-2"
+                >
+                  Log Out
+                </button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <>
+            <MyNavLink to={"/auth/login"}>Login</MyNavLink>
+            <MyNavLink to={"/auth/register"}>Register</MyNavLink>
+          </>
+        )}
 
         <label className="toggle text-base-content">
           <input
