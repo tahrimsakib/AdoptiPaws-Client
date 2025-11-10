@@ -1,19 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router";
+import Loading from "../Loading/Loading";
 
 const AllPets = () => {
   const data = useLoaderData();
-  console.log(data);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const categories = ["All", ...new Set(data.map((item) => item.category))];
 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   const filteredData = data.filter((item) => {
-    return selectedCategory === "All" || item.category === selectedCategory;
+    const matchesCategory =
+      selectedCategory === "All" || item.category === selectedCategory;
+    const matchesSearch = item.name
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    return matchesCategory && matchesSearch;
   });
 
   return (
-    <section className="max-w-11/12 mx-auto px-5 py-16 relative">
+    <section className="max-w-7xl mx-auto px-5 py-16 relative">
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-gradient-to-br from-[#ffd1b3]/60 to-[#ff6d2d]/40 blur-3xl rounded-full opacity-70 -z-10"></div>
       <div className="absolute -bottom-24 -right-16 w-72 h-72 bg-gradient-to-tr from-[#ffe0cc]/60 to-[#ff6d2d]/30 blur-3xl rounded-full opacity-60 -z-10"></div>
       <div className="text-center mb-10">
@@ -28,20 +44,47 @@ const AllPets = () => {
           healthy
         </p>
       </div>
-      <div className="flex flex-col lg:flex-row justify-center mb-10 gap-4">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setSelectedCategory(category)}
-            className={`px-4 py-2 rounded-full font-medium transition-all ${
-              selectedCategory === category
-                ? "bg-[#ff6d2d] text-white shadow-md"
-                : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-700 hover:bg-[#ff6d2d] hover:text-white"
-            }`}
+
+      <div className="flex flex-col lg:flex-row justify-between items-center mb-10 gap-5">
+        <div className="flex flex-wrap justify-center lg:justify-start gap-3">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded-full font-medium transition-all ${
+                selectedCategory === category
+                  ? "bg-[#ff6d2d] text-white shadow-md"
+                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-700 hover:bg-[#ff6d2d] hover:text-white"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="relative w-3/5 md:w-4/5 lg:w-1/3">
+          <input
+            type="text"
+            placeholder="Search pets or supplies..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full py-2.5 px-4 rounded-full border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-[#ff6d2d] outline-none dark:bg-gray-800 dark:text-white"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute right-4 top-2.5 w-5 h-5 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            {category}
-          </button>
-        ))}
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z"
+            />
+          </svg>
+        </div>
       </div>
 
       {filteredData.length > 0 ? (
@@ -54,13 +97,13 @@ const AllPets = () => {
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-full h-50 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-6 space-y-3">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                   {item.name}
                 </h3>
-                <p className="text-sl text-gray-500 dark:text-gray-400 font2">
+                <p className="text-sm text-gray-500 dark:text-gray-400 font2">
                   {item.category} • {item.location}
                 </p>
                 <p className="text-lg font-bold text-[#ff6d2d]">

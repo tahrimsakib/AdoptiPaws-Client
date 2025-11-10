@@ -37,15 +37,21 @@ const Navbar = () => {
       <li>
         <MyNavLink to="/pets">Pets & Supplies</MyNavLink>
       </li>
-      <li>
-        <MyNavLink to="/add-listing">Add Listing</MyNavLink>
-      </li>
-      <li>
-        <MyNavLink to="/my-listings">My Listings</MyNavLink>
-      </li>
-      <li>
-        <MyNavLink to="/my-orders">My Orders</MyNavLink>
-      </li>
+      {user ? (
+        <>
+          <li>
+            <MyNavLink to="/add-listing">Add Listing</MyNavLink>
+          </li>
+          <li>
+            <MyNavLink to="/my-listings">My Listings</MyNavLink>
+          </li>
+          <li>
+            <MyNavLink to="/my-orders">My Orders</MyNavLink>
+          </li>
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 
@@ -117,14 +123,14 @@ const Navbar = () => {
               className="mt-3 z-[1000] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <Link>
-                <p className="btn btn-sm w-full font-semibold text-gray-700 text-center hover:text-gray-900 transition ">
+                <p className=" w-full font-semibold text-gray-700 dark:text-white text-center font2">
                   {user.displayName || "User"}
                 </p>
               </Link>
               <li>
                 <button
                   onClick={handleLogOut}
-                  className="btn btn-sm bg-red-500 text-white hover:bg-red-700 mt-2"
+                  className="btn font2 btn-sm bg-red-500 text-white hover:bg-red-700 mt-2"
                 >
                   Log Out
                 </button>

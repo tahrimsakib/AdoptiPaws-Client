@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
+import Loading from "../Loading/Loading";
 
 const PetsDetails = () => {
   const item = useLoaderData();
   console.log(item);
+
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <section className="max-w-10/12 mx-auto px-6 py-16">
       <div className="grid md:grid-cols-2 gap-10 items-center">

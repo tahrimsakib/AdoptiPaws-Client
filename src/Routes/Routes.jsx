@@ -10,6 +10,7 @@ import Register from "../Pages/auth/Register";
 import AuthLayout from "../Layouts/AuthLayout";
 import Error from "../Pages/error/Error";
 import PetsDetails from "../Pages/Pets/PetsDetails";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -28,21 +29,37 @@ export const router = createBrowserRouter([
       },
       {
         path: "/pets/:id",
-        Component: PetsDetails,
+        element: (
+          <PrivateRoute>
+            <PetsDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/pets/${params.id}`),
       },
       {
         path: "/add-listing",
-        Component: AddListing,
+        element: (
+          <PrivateRoute>
+            <AddListing />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-listings",
-        Component: MyListings,
+        element: (
+          <PrivateRoute>
+            <MyListings />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-orders",
-        Component: MyOrders,
+        element: (
+          <PrivateRoute>
+            <MyListings />
+          </PrivateRoute>
+        ),
       },
     ],
   },
