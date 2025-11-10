@@ -36,7 +36,7 @@ const Home = () => {
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.map((item) => (
-            <Recent6 item={item} />
+            <Recent6 key={item._id} item={item} />
           ))}
         </div>
       </section>

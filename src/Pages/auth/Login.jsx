@@ -72,7 +72,7 @@ const Login = () => {
               type="email"
               name="email"
               placeholder="Enter your email"
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300"
+              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300 font2"
             />
           </div>
 
@@ -84,7 +84,7 @@ const Login = () => {
               type="password"
               name="password"
               placeholder="Enter your password"
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300"
+              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300 font2"
             />
           </div>
 

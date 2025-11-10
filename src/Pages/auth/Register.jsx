@@ -87,7 +87,7 @@ const Register = () => {
               type="text"
               name="name" required
               placeholder="Enter your name"
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300"
+              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300 font2"
             />
           </div>
 
@@ -100,20 +100,20 @@ const Register = () => {
               type="email"
               name="email" required
               placeholder="Enter your email"
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300"
+              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300 font2"
             />
           </div>
 
           {/* Password Input */}
           <div className="mb-6">
-            <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
+            <label className="block text-gray-700 dark:text-gray-200 text-base mb-2 ">
               Password
             </label>
             <input
               type="password"
               name="password" required
               placeholder="Enter your password"
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300"
+              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300 font2"
             />
           </div>
 
@@ -126,7 +126,7 @@ const Register = () => {
               type="url"
               name="photo" required
               placeholder="Enter your photo URL"
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300"
+              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300 font2"
             />
           </div>
 
