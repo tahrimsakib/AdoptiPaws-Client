@@ -7,6 +7,8 @@ const MyListings = () => {
   const { user } = useContext(AuthContext);
   const [order, setOrder] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selecteditem, setSelecteditem] = useState(null);
 
   useEffect(() => {
     if (user?.email) setLoading(true);
@@ -60,6 +62,13 @@ const MyListings = () => {
     });
   };
 
+  const handleOpen = (item) => {
+    setSelecteditem(item);
+    setIsOpen(true);
+  };
+
+  // console.log(selectedId)
+
   return (
     <div className="max-w-7xl mx-auto px-5 py-16 min-h-screen-minus-380">
       <div className="text-center mb-10">
@@ -110,7 +119,10 @@ const MyListings = () => {
                   {item.location}
                 </td>
                 <td className="font2 flex flex-col gap-5 items-center">
-                  <button className="w-full py-2 px-4 bg-linear-to-r from-[#1d8ced] to-[#00f2fe] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <button
+                    onClick={() => handleOpen(item)}
+                    className="w-full py-2 px-4 bg-linear-to-r from-[#1d8ced] to-[#00f2fe] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  >
                     Edit
                   </button>
 
@@ -126,6 +138,101 @@ const MyListings = () => {
           </tbody>
         </table>
       </div>
+
+      {isOpen && (
+        <div className="fixed inset-0  bg-black/40 backdrop-blur-md flex items-center justify-center z-50">
+          <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div className="absolute inset-0 bg-black/50"></div>
+
+            <div className="relative bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] p-6 overflow-y-auto z-10">
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              >
+                ✕
+              </button>
+
+              <h2 className="text-2xl font-bold mb-6 text-center">
+                Edit Your Listing
+              </h2>
+
+              <form className="space-y-4">
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
+                    Product / Pet Name
+                  </label>
+                  <input
+                    type="text"
+                    defaultValue={selecteditem?.name}
+                    name="name"
+                    className="font2 w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
+                    Category
+                  </label>
+
+                  <select
+                    defaultValue={selecteditem?.category}
+                    name="category"
+                    required
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 font2"
+                  >
+                    <option value="">Select category</option>
+                    <option value="Pets">Pets</option>
+                    <option value="Food">Food</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Care Products">Pet Care Products</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
+                    Price
+                  </label>
+                  <input
+                    type="number"
+                    value={selecteditem?.price}
+                    name="price"
+                    className="font2 w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
+                    Location
+                  </label>
+                  <input
+                    type="text"
+                    value={selecteditem?.location}
+                    name="location"
+                    className="font2 w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
+                    Image URL
+                  </label>
+                  <input
+                    type="url"
+                    value={selecteditem?.image}
+                    name="location"
+                    className="font2 w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] text-white rounded-xl font-semibold hover:scale-[1.02] transition"
+                >
+                  Edit Listing
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
