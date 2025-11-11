@@ -19,7 +19,7 @@ const MyOrders = () => {
   const downloadPDF = () => {
     const doc = new jsPDF();
     doc.setFontSize(16);
-    doc.text("Orders Report", 14, 15);
+    doc.text(`${user.displayName}'s Orders Report`, 14, 15);
 
     const tableColumn = [
       "Product Name",
@@ -48,14 +48,14 @@ const MyOrders = () => {
       styles: { fontSize: 10, cellPadding: 3 },
     });
 
-    doc.save("orders_report.pdf");
+    doc.save(`${user.displayName}'s_orders_report.pdf`);
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-5 py-16">
+    <div className="max-w-7xl mx-auto px-5 py-16 min-h-screen-minus-380">
       <div className="text-center mb-10">
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-3">
-          <span className="bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
             My
           </span>{" "}
           Orders
@@ -66,11 +66,11 @@ const MyOrders = () => {
       </div>
 
       {order.length > 0 && (
-        <div className="flex justify-end mb-4">
+        <div className="flex justify-center lg:justify-end mb-4">
           <button
             type="button"
             onClick={downloadPDF}
-            className="bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] text-white font-semibold px-4 py-2 rounded-xl shadow-md hover:scale-[1.03] hover:shadow-lg transition-all duration-300 cursor-pointer"
+            className="bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] text-white font-semibold px-4 py-2 rounded-xl shadow-md hover:scale-[1.03] hover:shadow-lg transition-all duration-300 cursor-pointer"
           >
             Download Report
           </button>
