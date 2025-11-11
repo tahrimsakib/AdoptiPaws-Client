@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
+import Swal from "sweetalert2";
 
 const MyListings = () => {
   const { user } = useContext(AuthContext);
@@ -17,6 +18,43 @@ const MyListings = () => {
         .catch((err) => console.error(err));
     }
   }, [user?.email]);
+
+  console.log(order);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/pets/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+
+            const filterdata = order.filter((data) => data._id !== id);
+            setOrder(filterdata);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    });
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-16 min-h-screen-minus-380">
@@ -68,13 +106,14 @@ const MyListings = () => {
                   {item.location}
                 </td>
                 <td className="font2 flex flex-col gap-5 items-center">
-                  {/* Edit Button */}
                   <button className="w-full py-2 px-4 bg-gradient-to-r from-[#1d8ced] to-[#00f2fe] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                     Edit
                   </button>
 
-                  {/* Delete Button */}
-                  <button className="w-full py-2 px-4 bg-gradient-to-r from-[#ea1e1e] to-[#ff6c53] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <button
+                    onClick={() => handleDelete(item._id)}
+                    className="w-full py-2 px-4 bg-gradient-to-r from-[#ea1e1e] to-[#ff6c53] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                  >
                     Delete
                   </button>
                 </td>
