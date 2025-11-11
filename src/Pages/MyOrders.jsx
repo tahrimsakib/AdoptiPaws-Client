@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
@@ -17,48 +17,38 @@ const MyOrders = () => {
   }, [user?.email]);
 
   const downloadPDF = () => {
-    if (order.length === 0) return alert("No orders to download!");
-
     const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text("Orders Report", 14, 15);
 
-    doc.setFontSize(18);
-    doc.text("My Orders Report", 14, 22);
-
-    // Prepare table data
     const tableColumn = [
       "Product Name",
-      "Buyer Name",
-      "Address",
+      "Buyer Name & Address",
       "Price",
       "Quantity",
       "Date",
       "Phone",
     ];
-    const tableRows = [];
 
-    order.forEach((item) => {
-      const rowData = [
-        item.product_name,
-        item.buyer_name,
-        item.address,
-        `$${item.price}`,
-        item.quantity,
-        item.date,
-        item.phone,
-      ];
-      tableRows.push(rowData);
-    });
+    const tableRows = order.map((item) => [
+      item.product_name,
+      `${item.buyer_name}\n${item.address}`,
+      `$${item.price}`,
+      item.quantity,
+      item.date,
+      item.phone,
+    ]);
 
-    // Add table to PDF
-    doc.autoTable({
+    autoTable(doc, {
       head: [tableColumn],
       body: tableRows,
-      startY: 30,
-      headStyles: { fillColor: [255, 109, 45], textColor: 255 },
-      styles: { fontSize: 10 },
+      startY: 25,
+      theme: "grid",
+      headStyles: { fillColor: [255, 138, 76] },
+      styles: { fontSize: 10, cellPadding: 3 },
     });
 
-    doc.save("my-orders.pdf");
+    doc.save("orders_report.pdf");
   };
 
   return (
@@ -78,8 +68,9 @@ const MyOrders = () => {
       {order.length > 0 && (
         <div className="flex justify-end mb-4">
           <button
+            type="button"
             onClick={downloadPDF}
-            className="bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] text-white font-semibold px-4 py-2 rounded-xl shadow-md hover:scale-[1.03] hover:shadow-lg transition-all duration-300"
+            className="bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] text-white font-semibold px-4 py-2 rounded-xl shadow-md hover:scale-[1.03] hover:shadow-lg transition-all duration-300 cursor-pointer"
           >
             Download Report
           </button>
@@ -94,7 +85,7 @@ const MyOrders = () => {
         <div className="overflow-x-auto">
           <table className="table-auto w-full border-collapse border border-gray-300 dark:border-gray-700">
             <thead>
-              <tr className="bg-gray-100 dark:bg-gray-800">
+              <tr className="bg-[#ff8a4c] dark:bg-gray-800">
                 <th className="p-3 border font2">Product Name</th>
                 <th className="p-3 border font2">Buyer Name & Address</th>
                 <th className="p-3 border font2">Price</th>
@@ -109,12 +100,14 @@ const MyOrders = () => {
                   <td className="p-3 border font2">{item.product_name}</td>
                   <td className="p-3 border font2">
                     <div>{item.buyer_name}</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400">
+                    <div className="text-sm font2 text-gray-500 dark:text-gray-400">
                       {item.address}
                     </div>
                   </td>
-                  <td className="p-3 border font2">${item.price}</td>
-                  <td className="p-3 border font2 text-center">{item.quantity}</td>
+                  <td className="p-3 border font2 font-bold">${item.price}</td>
+                  <td className="p-3 border font2 text-center">
+                    {item.quantity}
+                  </td>
                   <td className="p-3 border font2">{item.date}</td>
                   <td className="p-3 border font2">{item.phone}</td>
                 </tr>
