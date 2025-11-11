@@ -133,7 +133,7 @@ const Register = () => {
           {/* Register Button */}
           <button
             type="submit"
-            className="w-full bg-[#ff6d2d] text-white py-3 rounded-lg hover:bg-[#e65c1d] transition-colors mb-6 text-lg font-medium"
+            className="w-full bg-[#ff6d2d] text-white py-3 rounded-lg hover:bg-[#e65c1d] transition-colors mb-6 text-lg font-medium cursor-pointer"
           >
             Register
           </button>
@@ -149,7 +149,7 @@ const Register = () => {
               alt="Google"
               className="w-6 h-6"
             />
-            <span className="text-gray-700 dark:text-gray-200 text-base font-medium">
+            <span className="text-gray-700 dark:text-gray-200 text-base font-medium cursor-pointer">
               Register with Google
             </span>
           </button>
@@ -159,7 +159,7 @@ const Register = () => {
             Already have an account?{" "}
             <Link
               to={"/auth/login"}
-              className="text-[#ff6d2d] hover:underline font-medium font2"
+              className="text-[#ff6d2d] hover:underline font-medium font2 cursor-pointer"
             >
               Login here
             </Link>

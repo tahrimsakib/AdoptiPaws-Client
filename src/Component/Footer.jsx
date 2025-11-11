@@ -39,7 +39,7 @@ const Footer = () => {
 
           <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-6 md:mt-0">
             <div className="flex flex-col gap-2">
-              <h3 className="font-semibold mb-2">Useful Links</h3>
+              <h3 className="font-semibold mb-2 ">Useful Links</h3>
               <Link>
                 <MyNavLink to="/">Home</MyNavLink>
               </Link>
