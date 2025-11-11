@@ -2,19 +2,28 @@ import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import Loading from "./Loading/Loading";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [order, setOrder] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:3000/orders?email=${user.email}`)
         .then((res) => res.json())
-        .then((data) => setOrder(data))
+        .then((data) => {
+          setOrder(data);
+          setLoading(false);
+        })
         .catch((err) => console.error(err));
     }
   }, [user?.email]);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   const downloadPDF = () => {
     const doc = new jsPDF();

@@ -56,7 +56,7 @@ const PetsDetails = () => {
         toast.success("Successfully added!");
         console.log(data);
         e.target.reset();
-        setIsOpen(false); 
+        setIsOpen(false);
       })
       .catch((err) => {
         console.log(err);
@@ -104,7 +104,7 @@ const PetsDetails = () => {
 
           <button
             onClick={() => setIsOpen(true)}
-            className="w-full md:w-auto mt-8 px-10 py-3 bg-gradient-to-r from-[#e48c59] to-[#ff6d2d] text-white font-semibold rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#ff6d2d]/40"
+            className="w-full md:w-auto mt-8 px-10 py-3 bg-linear-to-r from-[#e48c59] to-[#ff6d2d] text-white font-semibold rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#ff6d2d]/40"
           >
             Adopt / Order Now
           </button>
@@ -267,7 +267,7 @@ const PetsDetails = () => {
 
                     <button
                       type="submit"
-                      className="w-full py-3 bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] text-white rounded-xl font-semibold hover:scale-[1.02] transition"
+                      className="w-full py-3 bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] text-white rounded-xl font-semibold hover:scale-[1.02] transition"
                     >
                       Place Order
                     </button>

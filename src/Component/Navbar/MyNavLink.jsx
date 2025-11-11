@@ -6,7 +6,7 @@ export default function MyNavLink({ to, children }) {
       to={to}
       className={({ isActive }) =>
         isActive
-          ? "text-white font-bold bg-gradient-to-r from-[#ff8a4c] to-[#ff611d] p-1 rounded-[6px]"
+          ? "text-white font-bold bg-linear-to-r from-[#ff8a4c] to-[#ff611d] p-1 rounded-[6px]"
           : "hover:text-[#ff6d2d] transition"
       }
     >

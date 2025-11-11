@@ -1,25 +1,29 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
+import Loading from "./Loading/Loading";
 
 const MyListings = () => {
   const { user } = useContext(AuthContext);
   const [order, setOrder] = useState([]);
-
-  console.log(user);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (user?.email) {
-      fetch(`http://localhost:3000/pets?email=${user.email}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setOrder(data);
-        })
-        .catch((err) => console.error(err));
-    }
+    if (user?.email) setLoading(true);
+    fetch(`http://localhost:3000/pets?email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setOrder(data);
+        setLoading(false);
+      })
+      .catch((err) => console.error(err));
   }, [user?.email]);
 
-  console.log(order);
+  if (loading) {
+    return <Loading />;
+  }
+
+  // console.log(order);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -106,13 +110,13 @@ const MyListings = () => {
                   {item.location}
                 </td>
                 <td className="font2 flex flex-col gap-5 items-center">
-                  <button className="w-full py-2 px-4 bg-gradient-to-r from-[#1d8ced] to-[#00f2fe] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
+                  <button className="w-full py-2 px-4 bg-linear-to-r from-[#1d8ced] to-[#00f2fe] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer">
                     Edit
                   </button>
 
                   <button
                     onClick={() => handleDelete(item._id)}
-                    className="w-full py-2 px-4 bg-gradient-to-r from-[#ea1e1e] to-[#ff6c53] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                    className="w-full py-2 px-4 bg-linear-to-r from-[#ea1e1e] to-[#ff6c53] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
                   >
                     Delete
                   </button>

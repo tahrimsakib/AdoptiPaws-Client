@@ -1,9 +1,23 @@
-import React, { use } from "react";
+import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
+import Loading from "./Loading/Loading";
 
 const AddListing = () => {
   const { user } = use(AuthContext);
+
+   const [loading, setLoading] = useState(true);
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 800);
+  
+      return () => clearTimeout(timer);
+    }, []);
+  
+    if (loading) {
+      return <Loading />;
+    }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,7 +58,7 @@ const AddListing = () => {
         <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-gradient-to-tr from-[#ffd1b3]/50 to-[#ff6d2d]/30 blur-3xl rounded-full -z-10"></div>
 
         <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-6">
-          <span className="bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
             Add
           </span>{" "}
           New Listing
@@ -150,7 +164,7 @@ const AddListing = () => {
 
           <button
             type="submit"
-            className="w-full mt-4 py-3 text-white font-semibold bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all"
+            className="w-full mt-4 py-3 text-white font-semibold bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all"
           >
             Add Listing
           </button>

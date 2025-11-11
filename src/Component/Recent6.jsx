@@ -28,7 +28,7 @@ const Recent6 = ({ item }) => {
 
           <Link
             to={`/pets/${item._id}`}
-            className="w-fit inline-block mt-3 ml-6 px-5 py-2 bg-gradient-to-r from-[#ff8a4c] to-[#ff611d] text-white text-sm rounded-full font-medium hover:shadow-md transition-all  "
+            className="w-fit inline-block mt-3 ml-6 px-5 py-2 bg-linear-to-r from-[#ff8a4c] to-[#ff611d] text-white text-sm rounded-full font-medium hover:shadow-md transition-all  "
           >
             See Details →
           </Link>

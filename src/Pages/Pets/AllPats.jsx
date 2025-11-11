@@ -30,11 +30,11 @@ const AllPets = () => {
 
   return (
     <section className="max-w-7xl mx-auto px-5 py-16 relative">
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-gradient-to-br from-[#ffd1b3]/60 to-[#ff6d2d]/40 blur-3xl rounded-full opacity-70 -z-10"></div>
-      <div className="absolute -bottom-24 -right-16 w-72 h-72 bg-gradient-to-tr from-[#ffe0cc]/60 to-[#ff6d2d]/30 blur-3xl rounded-full opacity-60 -z-10"></div>
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-linear-to-br from-[#ffd1b3]/60 to-[#ff6d2d]/40 blur-3xl rounded-full opacity-70 -z-10"></div>
+      <div className="absolute -bottom-24 -right-16 w-72 h-72 bg-linear-to-tr from-[#ffe0cc]/60 to-[#ff6d2d]/30 blur-3xl rounded-full opacity-60 -z-10"></div>
       <div className="text-center mb-10">
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-3">
-          <span className="bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
             Pets
           </span>{" "}
           & Supplies
@@ -112,7 +112,7 @@ const AllPets = () => {
 
                 <Link
                   to={`/pets/${item._id}`}
-                  className="inline-block mt-3 px-5 py-2 bg-gradient-to-r from-[#ff8a4c] to-[#ff6d2d] text-white text-sm rounded-full font-medium hover:shadow-md transition-all"
+                  className="inline-block mt-3 px-5 py-2 bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] text-white text-sm rounded-full font-medium hover:shadow-md transition-all"
                 >
                   See Details →
                 </Link>
