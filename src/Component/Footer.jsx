@@ -14,7 +14,7 @@ const Footer = () => {
               <figure>
                 <img
                   className="w-8 rounded-[10px]"
-                  src="/public/Gemini_Generated_Image_llkghsllkghsdfllkg.jpg"
+                  src="/Gemini_Generated_Image_llkghsllkghsdfllkg.jpg"
                   alt=""
                 />
               </figure>

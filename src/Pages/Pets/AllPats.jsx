@@ -30,7 +30,7 @@ const AllPets = () => {
 
   return (
     <section className="max-w-7xl mx-auto px-5 py-16 relative">
-       <title>AdoptiPaws | Pets & Supplies</title>
+      <title>AdoptiPaws | Pets & Supplies</title>
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-linear-to-br from-[#ffd1b3]/60 to-[#ff6d2d]/40 blur-3xl rounded-full opacity-70 -z-10"></div>
       <div className="absolute -bottom-24 -right-16 w-72 h-72 bg-linear-to-tr from-[#ffe0cc]/60 to-[#ff6d2d]/30 blur-3xl rounded-full opacity-60 -z-10"></div>
       <div className="text-center mb-10">
@@ -54,8 +54,8 @@ const AllPets = () => {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full font-medium transition-all ${
                 selectedCategory === category
-                  ? "bg-[#ff6d2d] text-white shadow-md"
-                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-700 hover:bg-[#ff6d2d] hover:text-white"
+                  ? "bg-[#ff6d2d] text-white shadow-md cursor-pointer"
+                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-700 hover:bg-[#ff6d2d] hover:text-white cursor-pointer"
               }`}
             >
               {category}

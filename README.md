@@ -1,16 +1,61 @@
-# React + Vite
+# AdoptiPaws🐾
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The **AdoptiPaws** is a full-stack web application designed for pet lovers and sellers to easily connect, buy, and sell pets online.  
+Built using **React**, **Tailwind CSS**, **Express**, **Firebase** and **MongoDB**, this platform delivers a smooth, secure, and visually modern experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Overview
 
-## React Compiler
+This project allows users to:
+- Create their own listings for pets or pet products  
+- View, edit, and manage their listings in a dedicated “My Listings” dashboard  
+- Delete items securely with confirmation alerts  
+- Experience fast, interactive UI updates without reloading the page  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The website is responsive, beautifully animated, and user-friendly across all devices.  
+It’s built with a **clean architecture** that separates frontend and backend concerns, ensuring scalability and maintainability.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Core Features
+
+### 🥼 User Listings
+- Users can **add**, **update**, and **delete** their pet or product listings.  
+- Each listing includes name, category, price, location, image, and description.  
+
+### 🔐 Authentication System
+- Only logged-in users can access or manage their listings.  
+- User-based filtering ensures privacy (only user’s own data is shown).
+
+### 🖋️ Edit Modal
+- Smooth modal interface for editing listings.  
+- Auto-filled data with real-time validation.  
+
+### 💬 Delete Confirmation
+- Uses **SweetAlert2** for clean and interactive confirmation popups.  
+
+### 🌗 Dark Mode Support
+- Designed for both light and dark themes using Tailwind’s dark mode utilities.  
+
+### ⚡ Notifications & Feedback
+- Integrated **React-Toastify** for success and error notifications.  
+
+### 🌀 Animations
+- Cursor-following glowing ball animation using **Framer Motion**.  
+- Fade, slide, and hover animations on buttons and cards for modern UI feel.  
+
+---
+
+## 🧠 Tech Stack
+
+| Category | Technologies |
+|-----------|---------------|
+| **Frontend** | React, Tailwind CSS, React Router, Framer Motion |
+| **Backend** | Node.js, Express.js |
+| **Database** | MongoDB (Atlas) |
+| **UI Enhancements** | SweetAlert2, React-Toastify |
+| **Build Tool** | Vite |
+| **Version Control** | Git + GitHub |
+
+---
