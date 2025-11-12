@@ -1,4 +1,5 @@
 import React from "react";
+import { Tooltip } from "react-tooltip";
 
 const MeetTeam = () => {
   return (
@@ -8,7 +9,11 @@ const MeetTeam = () => {
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto px-6">
-        <div className="bg-white dark:bg-gray-800 border border-gray-400 shadow-md rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#ff6d2d] hover:scale-105 transition-transform duration-300">
+        <div
+          data-tooltip-id="my-tooltip-inline"
+          data-tooltip-content="Emma Johnson"
+          className="bg-white dark:bg-gray-800 border border-gray-400 shadow-md rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#ff6d2d] hover:scale-105 transition-transform duration-300"
+        >
           <img
             src="https://images.pexels.com/photos/29497239/pexels-photo-29497239.jpeg"
             alt="Team Member"
@@ -22,7 +27,11 @@ const MeetTeam = () => {
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 border border-gray-400 shadow-md rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#ff6d2d] hover:scale-105 transition-transform duration-300">
+        <div
+          data-tooltip-id="my-tooltip-inline"
+          data-tooltip-content="Liam Carter"
+          className="bg-white dark:bg-gray-800 border border-gray-400 shadow-md rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#ff6d2d] hover:scale-105 transition-transform duration-300"
+        >
           <img
             src="https://images.pexels.com/photos/13081121/pexels-photo-13081121.jpeg"
             alt="Team Member"
@@ -34,7 +43,11 @@ const MeetTeam = () => {
           <p className="text-[#ff6d2d] font-medium font2">Animal Trainer</p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 border border-gray-400 shadow-md rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#ff6d2d] hover:scale-105 transition-transform duration-300">
+        <div
+          data-tooltip-id="my-tooltip-inline"
+          data-tooltip-content="Sophia Lee"
+          className="bg-white dark:bg-gray-800 border border-gray-400 shadow-md rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#ff6d2d] hover:scale-105 transition-transform duration-300"
+        >
           <img
             src="https://images.pexels.com/photos/6568493/pexels-photo-6568493.jpeg"
             alt="Team Member"
@@ -48,7 +61,11 @@ const MeetTeam = () => {
           </p>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 border border-gray-400 shadow-md rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#ff6d2d] hover:scale-105 transition-transform duration-300">
+        <div
+          data-tooltip-id="my-tooltip-inline"
+          data-tooltip-content="Zen Chung"
+          className="bg-white dark:bg-gray-800 border border-gray-400 shadow-md rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#ff6d2d] hover:scale-105 transition-transform duration-300"
+        >
           <img
             src="https://images.pexels.com/photos/5749792/pexels-photo-5749792.jpeg"
             alt="Team Member"
@@ -62,6 +79,11 @@ const MeetTeam = () => {
           </p>
         </div>
       </div>
+
+      <Tooltip
+        id="my-tooltip-inline"
+        style={{ backgroundColor: "rgb(255, 109, 45)", color: "#222" }}
+      />
     </section>
   );
 };
