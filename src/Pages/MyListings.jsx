@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import Swal from "sweetalert2";
 import Loading from "./Loading/Loading";
+import { toast } from "react-toastify";
 
 const MyListings = () => {
   const { user } = useContext(AuthContext);
@@ -25,7 +26,7 @@ const MyListings = () => {
     return <Loading />;
   }
 
-  // console.log(order);
+  // console.log(user);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -67,7 +68,39 @@ const MyListings = () => {
     setIsOpen(true);
   };
 
-  // console.log(selectedId)
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  if (!selecteditem) return;
+
+  const formData = {
+    name: e.target.name.value,
+    category: e.target.category.value,
+    price: e.target.price.value,
+    location: e.target.location.value,
+    description: e.target.description.value,
+    image: e.target.image.value,
+    email: user.email,
+    date: new Date(),
+  };
+
+  fetch(`http://localhost:3000/pets/${selecteditem._id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(formData),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      toast.success("Listing updated!");
+      setOrder((prev) =>
+        prev.map((p) =>
+          p._id === selecteditem._id ? { ...p, ...formData } : p
+        )
+      );
+      setIsOpen(false);
+    })
+    .catch(console.error);
+};
+
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-16 min-h-screen-minus-380">
@@ -156,7 +189,10 @@ const MyListings = () => {
                 Edit Your Listing
               </h2>
 
-              <form className="space-y-4">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4"
+              >
                 <div>
                   <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
                     Product / Pet Name
@@ -193,7 +229,7 @@ const MyListings = () => {
                   </label>
                   <input
                     type="number"
-                    value={selecteditem?.price}
+                    defaultValue={selecteditem?.price}
                     name="price"
                     className="font2 w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800"
                   />
@@ -205,10 +241,22 @@ const MyListings = () => {
                   </label>
                   <input
                     type="text"
-                    value={selecteditem?.location}
+                    defaultValue={selecteditem?.location}
                     name="location"
                     className="font2 w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800"
                   />
+                </div>
+                <div>
+                  <label className=" block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Description
+                  </label>
+                  <textarea
+                    name="description"
+                    rows="4"
+                    placeholder="Write a short description..."
+                    defaultValue={selecteditem?.description}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-[#ff6d2d] outline-none font2 resize-none"
+                  ></textarea>
                 </div>
                 <div>
                   <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
@@ -216,8 +264,8 @@ const MyListings = () => {
                   </label>
                   <input
                     type="url"
-                    value={selecteditem?.image}
-                    name="location"
+                    defaultValue={selecteditem?.image}
+                    name="image"
                     className="font2 w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800"
                   />
                 </div>
