@@ -28,6 +28,10 @@ const Slider = () => {
       img: "/pet2.jpg",
       title: "Adopt a life, not just a pet",
     },
+    {
+      img: "/pet4.jpg",
+      title: "The Missing Piece of Your Family.",
+    },
   ];
 
   return (

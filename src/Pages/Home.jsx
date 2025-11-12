@@ -26,6 +26,7 @@ const Home = () => {
 
   return (
     <div>
+      <title>AdoptiPaws | Home</title>
       <Slider />
       <section className="max-w-11/12 mx-auto">
         <Category />

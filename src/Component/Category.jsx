@@ -54,14 +54,13 @@ const Category = () => {
           </p>
         </Link>
 
-        {/* Pet Care Products */}
         <Link
           to={"/"}
           className="bg-white dark:bg-gray-800 border border-gray-400 shadow-md rounded-2xl p-6 text-center hover:shadow-lg hover:border-[#ff6d2d] hover:scale-105 transition-transform duration-300"
         >
           <div className="text-5xl mb-3">🧴</div>
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-            Pet Care Products
+            Care Products
           </h3>
           <p className="font2 mt-9 text-gray-500 dark:text-gray-300">
             Grooming, hygiene, and wellness essentials to keep your pet clean,

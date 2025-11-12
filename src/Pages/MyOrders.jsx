@@ -62,6 +62,7 @@ const MyOrders = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-16 min-h-screen-minus-380">
+      <title>AdoptiPaws | My Orders</title>{" "}
       <div className="text-center mb-10">
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-3">
           <span className="bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
@@ -73,7 +74,6 @@ const MyOrders = () => {
           Track your placed orders and manage your purchase history.
         </p>
       </div>
-
       {order.length > 0 && (
         <div className="flex justify-center lg:justify-end mb-4">
           <button
@@ -85,7 +85,6 @@ const MyOrders = () => {
           </button>
         </div>
       )}
-
       {order.length === 0 ? (
         <h2 className="text-center text-3xl font-bold text-gray-700 dark:text-gray-200">
           No Orders Yet

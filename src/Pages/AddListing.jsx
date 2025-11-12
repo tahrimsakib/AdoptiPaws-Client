@@ -53,7 +53,8 @@ const AddListing = () => {
 
   return (
     <section className="max-w-3xl mx-auto px-5 py-16">
-      <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-10 border border-gray-100 dark:border-gray-700 relative overflow-hidden">
+       <title>AdoptiPaws | Add Listing</title>
+      <div className=" dark:bg-gray-900 rounded-3xl shadow-xl p-10 border border-gray-100 dark:border-gray-700 relative overflow-hidden">
         <div className="absolute -top-10 -left-10 w-60 h-60 bg-gradient-to-br from-[#ffb08f]/60 to-[#ff6d2d]/30 blur-3xl rounded-full -z-10"></div>
         <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-gradient-to-tr from-[#ffd1b3]/50 to-[#ff6d2d]/30 blur-3xl rounded-full -z-10"></div>
 
@@ -91,7 +92,7 @@ const AddListing = () => {
               <option value="Pets">Pets</option>
               <option value="Food">Food</option>
               <option value="Accessories">Accessories</option>
-              <option value="Care Products">Pet Care Products</option>
+              <option value="Care Products">Care Products</option>
             </select>
           </div>
 

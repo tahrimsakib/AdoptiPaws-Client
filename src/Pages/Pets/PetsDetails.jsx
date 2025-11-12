@@ -53,7 +53,7 @@ const PetsDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success("Successfully added!");
+        toast.success("Order confirmed!");
         console.log(data);
         e.target.reset();
         setIsOpen(false);
@@ -64,7 +64,8 @@ const PetsDetails = () => {
   };
 
   return (
-    <section className="max-w-10/12 mx-auto px-6 py-16">
+    <section className="max-w-11/12 mx-auto px-6 py-16">
+      <title>{item.name}</title>
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div className="relative group">
           <img
@@ -97,14 +98,29 @@ const PetsDetails = () => {
 
           <div className="flex items-center justify-baseline gap-7 text-lg font-semibold text-gray-900 dark:text-white pt-3">
             <p>
-              <span className="text-[#ff6d2d]">Price : ${item.price}</span>
+              <span className="font2 text-[#ff6d2d]">
+                Price : ${item.price}
+              </span>
             </p>
-            <p className="text-gray-800 dark:text-white"> {item.location}</p>
+            <p className="font2 text-gray-800 dark:text-white">
+              {" "}
+              {item.location}
+            </p>
+          </div>
+
+          <div className="flex items-center justify-baseline gap-7 text-lg font-semibold text-gray-900 dark:text-white pt-3">
+            <p>
+              <span className="font2 text-[#ff6d2d]">Owner's Email</span>
+              <span className="font2 text-gray-800 dark:text-white">
+                {" "}
+                : {item.email}
+              </span>
+            </p>
           </div>
 
           <button
             onClick={() => setIsOpen(true)}
-            className="w-full md:w-auto mt-8 px-10 py-3 bg-linear-to-r from-[#e48c59] to-[#ff6d2d] text-white font-semibold rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#ff6d2d]/40"
+            className="w-fit md:w-auto mt-8 px-10 py-3 bg-linear-to-r from-[#e48c59] to-[#ff6d2d] text-white font-semibold rounded-full shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#ff6d2d]/40"
           >
             Adopt / Order Now
           </button>
@@ -230,7 +246,7 @@ const PetsDetails = () => {
 
                     <div>
                       <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
-                        Pick Up Date
+                        Pick Up
                       </label>
                       <input
                         type="date"

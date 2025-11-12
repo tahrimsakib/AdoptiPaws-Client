@@ -69,11 +69,14 @@ const Register = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-white dark:bg-black transition-colors duration-300 py-20">
-      <div className="bg-white dark:bg-neutral-900 shadow-xl rounded-2xl p-12 w-full max-w-lg transition-colors duration-300">
-        <h2 className="text-3xl font-bold text-center mb-10 text-[#ff6d2d]">
-          Register
+       <div className=" dark:bg-gray-900 shadow-xl rounded-2xl p-12 w-full max-w-lg border border-gray-200 bg-gray-100 dark:border-gray-700 relative overflow-hidden">
+        <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-6">
+          <span className="bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
+            Register
+          </span>{" "}
+          Now!
           <p className="text-xl font-light text-black dark:text-white font2">
-            Start your paw-some journey with AdoptiPaws.
+            Start your paw-some journey with AdoptiPaws
           </p>
         </h2>
 
@@ -87,7 +90,7 @@ const Register = () => {
               type="text"
               name="name" required
               placeholder="Enter your name"
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300 font2"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-[#ff6d2d] outline-none font2"
             />
           </div>
 
@@ -100,7 +103,7 @@ const Register = () => {
               type="email"
               name="email" required
               placeholder="Enter your email"
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300 font2"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-[#ff6d2d] outline-none font2"
             />
           </div>
 
@@ -113,7 +116,7 @@ const Register = () => {
               type="password"
               name="password" required
               placeholder="Enter your password"
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300 font2"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-[#ff6d2d] outline-none font2"
             />
           </div>
 
@@ -126,7 +129,7 @@ const Register = () => {
               type="url"
               name="photo" required
               placeholder="Enter your photo URL"
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-3 bg-white dark:bg-neutral-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:border-[#ff6d2d] transition-colors duration-300 font2"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-[#ff6d2d] outline-none font2"
             />
           </div>
 

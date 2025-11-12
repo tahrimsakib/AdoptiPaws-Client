@@ -30,6 +30,7 @@ const AllPets = () => {
 
   return (
     <section className="max-w-7xl mx-auto px-5 py-16 relative">
+       <title>AdoptiPaws | Pets & Supplies</title>
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-linear-to-br from-[#ffd1b3]/60 to-[#ff6d2d]/40 blur-3xl rounded-full opacity-70 -z-10"></div>
       <div className="absolute -bottom-24 -right-16 w-72 h-72 bg-linear-to-tr from-[#ffe0cc]/60 to-[#ff6d2d]/30 blur-3xl rounded-full opacity-60 -z-10"></div>
       <div className="text-center mb-10">

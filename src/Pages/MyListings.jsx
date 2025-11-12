@@ -103,6 +103,7 @@ const MyListings = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-5 py-16 min-h-[calc(100vh-380px)]">
+       <title>AdoptiPaws | My Listing</title>
       <div className="text-center mb-10">
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-3">
           <span className="bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
@@ -122,14 +123,13 @@ const MyListings = () => {
         </h2>
       ) : (
         <div className="overflow-x-auto">
-          <table className="table">
-            {/* head */}
+          <table className="table bg-gray-100  dark:bg-gray-900">
             <thead>
               <tr>
                 <th></th>
-                <th>Name (category)</th>
-                <th>price</th>
-                <th>location</th>
+                <th className="font2">Name (Category)</th>
+                <th className="font2">Price</th>
+                <th className="font2">Location</th>
               </tr>
             </thead>
             <tbody>
@@ -223,7 +223,7 @@ const MyListings = () => {
                     <option value="Pets">Pets</option>
                     <option value="Food">Food</option>
                     <option value="Accessories">Accessories</option>
-                    <option value="Care Products">Pet Care Products</option>
+                    <option value="Care Products">Care Products</option>
                   </select>
                 </div>
 

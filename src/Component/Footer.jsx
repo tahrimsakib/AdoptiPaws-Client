@@ -32,8 +32,9 @@ const Footer = () => {
               </Link>
             </div>
             <p className="text-gray-400 max-w-xs text-[17px] mt-2 font2">
-              PawMart connects local pet owners and buyers for adoption and pet
-              care products.
+              AdoptiPaws is dedicated to fostering the pet adoption process and
+              the circulation of pet care products by providing a direct, local
+              platform that connects current pet owners with interested buyers.
             </p>
           </div>
 
