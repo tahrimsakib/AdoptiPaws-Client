@@ -44,7 +44,7 @@ const PetsDetails = () => {
       additional_notes: e.target.notes.value,
     };
 
-    fetch("http://localhost:3000/orders", {
+    fetch("https://adopti-paws-server.vercel.app/orders", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

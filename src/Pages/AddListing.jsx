@@ -6,18 +6,18 @@ import Loading from "./Loading/Loading";
 const AddListing = () => {
   const { user } = use(AuthContext);
 
-   const [loading, setLoading] = useState(true);
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setLoading(false);
-      }, 800);
-  
-      return () => clearTimeout(timer);
-    }, []);
-  
-    if (loading) {
-      return <Loading />;
-    }
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ const AddListing = () => {
       date: new Date(),
     };
 
-    fetch("http://localhost:3000/pets", {
+    fetch("https://adopti-paws-server.vercel.app/pets", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -27,10 +27,10 @@ const Home = () => {
   return (
     <div>
       <Slider />
-      <section className="max-w-10/12 mx-auto">
+      <section className="max-w-11/12 mx-auto">
         <Category />
       </section>
-      <section className="max-w-10/12 mx-auto">
+      <section className="max-w-11/12 mx-auto">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-15 text-gray-900 dark:text-white">
           <span className="border-b-4 border-[#ff6d2d] pb-1">Rec</span>ent
         </h2>
@@ -40,7 +40,7 @@ const Home = () => {
           ))}
         </div>
       </section>
-      <section className="max-w-10/12 mx-auto">
+      <section className="max-w-11/12 mx-auto">
         <MeetTeam />
       </section>
       <section className="">

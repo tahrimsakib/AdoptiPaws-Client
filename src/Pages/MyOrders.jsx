@@ -11,7 +11,7 @@ const MyOrders = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/orders?email=${user.email}`)
+      fetch(`https://adopti-paws-server.vercel.app/orders?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setOrder(data);

@@ -13,7 +13,7 @@ const MyListings = () => {
 
   useEffect(() => {
     if (user?.email) setLoading(true);
-    fetch(`http://localhost:3000/pets?email=${user.email}`)
+    fetch(`https://adopti-paws-server.vercel.app/pets?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrder(data);
@@ -39,7 +39,7 @@ const MyListings = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/pets/${id}`, {
+        fetch(`https://adopti-paws-server.vercel.app/pets/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const MyListings = () => {
       date: new Date(),
     };
 
-    fetch(`http://localhost:3000/pets/${selecteditem._id}`, {
+    fetch(`https://adopti-paws-server.vercel.app/pets/${selecteditem._id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

@@ -20,12 +20,13 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch("http://localhost:3000/latest-pets"),
+        loader: () =>
+          fetch("https://adopti-paws-server.vercel.app/latest-pets"),
       },
       {
         path: "/pets",
         Component: AllPats,
-        loader: () => fetch("http://localhost:3000/pets"),
+        loader: () => fetch("https://adopti-paws-server.vercel.app/pets"),
       },
       {
         path: "/pets/:id",
@@ -35,7 +36,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/pets/${params.id}`),
+          fetch(`https://adopti-paws-server.vercel.app/pets/${params.id}`),
       },
       {
         path: "/add-listing",
