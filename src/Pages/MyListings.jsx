@@ -68,48 +68,47 @@ const MyListings = () => {
     setIsOpen(true);
   };
 
- const handleSubmit = (e) => {
-  e.preventDefault();
-  if (!selecteditem) return;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!selecteditem) return;
 
-  const formData = {
-    name: e.target.name.value,
-    category: e.target.category.value,
-    price: e.target.price.value,
-    location: e.target.location.value,
-    description: e.target.description.value,
-    image: e.target.image.value,
-    email: user.email,
-    date: new Date(),
+    const formData = {
+      name: e.target.name.value,
+      category: e.target.category.value,
+      price: e.target.price.value,
+      location: e.target.location.value,
+      description: e.target.description.value,
+      image: e.target.image.value,
+      email: user.email,
+      date: new Date(),
+    };
+
+    fetch(`http://localhost:3000/pets/${selecteditem._id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Listing updated!");
+        setOrder((prev) =>
+          prev.map((p) =>
+            p._id === selecteditem._id ? { ...p, ...formData } : p
+          )
+        );
+        setIsOpen(false);
+      })
+      .catch(console.error);
   };
 
-  fetch(`http://localhost:3000/pets/${selecteditem._id}`, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      toast.success("Listing updated!");
-      setOrder((prev) =>
-        prev.map((p) =>
-          p._id === selecteditem._id ? { ...p, ...formData } : p
-        )
-      );
-      setIsOpen(false);
-    })
-    .catch(console.error);
-};
-
-
   return (
-    <div className="max-w-7xl mx-auto px-5 py-16 min-h-screen-minus-380">
+    <div className="max-w-7xl mx-auto px-5 py-16 min-h-[calc(100vh-380px)]">
       <div className="text-center mb-10">
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-3">
           <span className="bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
             My
           </span>{" "}
-          Orders
+          Listing
         </h2>
         <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-medium font2">
           Review all your completed and pending orders in one place and stay
@@ -117,60 +116,68 @@ const MyListings = () => {
         </p>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th></th>
-              <th>Name (category)</th>
-              <th>price</th>
-              <th>location</th>
-            </tr>
-          </thead>
-          <tbody>
-            {order.map((item) => (
+      {order.length === 0 ? (
+        <h2 className="text-center text-3xl font-bold text-gray-700 dark:text-gray-200">
+          No Lists Yet
+        </h2>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
               <tr>
-                <td>
-                  <div className="avatar">
-                    <div className="rounded-4xl w-20 lg:max-w-30">
-                      <img src={item.image} alt={item.name} />
-                    </div>
-                  </div>
-                </td>
-
-                <td className=" font2">
-                  <div className="text-[14px] lg:text-[18px]">{item.name}</div>
-                  <div className="text-sm font2 text-gray-500 dark:text-gray-400">
-                    ( {item.category} )
-                  </div>
-                </td>
-                <td className="font2 text-[14px] lg:text-[18px] font-semibold">
-                  ${item.price}
-                </td>
-                <td className="font2 text-[14px] lg:text-[18px] font-semibold">
-                  {item.location}
-                </td>
-                <td className="font2 flex flex-col gap-5 items-center">
-                  <button
-                    onClick={() => handleOpen(item)}
-                    className="w-full py-2 px-4 bg-linear-to-r from-[#1d8ced] to-[#00f2fe] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                  >
-                    Edit
-                  </button>
-
-                  <button
-                    onClick={() => handleDelete(item._id)}
-                    className="w-full py-2 px-4 bg-linear-to-r from-[#ea1e1e] to-[#ff6c53] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                  >
-                    Delete
-                  </button>
-                </td>
+                <th></th>
+                <th>Name (category)</th>
+                <th>price</th>
+                <th>location</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {order.map((item) => (
+                <tr>
+                  <td>
+                    <div className="avatar">
+                      <div className="rounded-4xl w-20 lg:max-w-30">
+                        <img src={item.image} alt={item.name} />
+                      </div>
+                    </div>
+                  </td>
+
+                  <td className=" font2">
+                    <div className="text-[14px] lg:text-[18px]">
+                      {item.name}
+                    </div>
+                    <div className="text-sm font2 text-gray-500 dark:text-gray-400">
+                      ( {item.category} )
+                    </div>
+                  </td>
+                  <td className="font2 text-[14px] lg:text-[18px] font-semibold">
+                    ${item.price}
+                  </td>
+                  <td className="font2 text-[14px] lg:text-[18px] font-semibold">
+                    {item.location}
+                  </td>
+                  <td className="font2 flex flex-col gap-5 items-center">
+                    <button
+                      onClick={() => handleOpen(item)}
+                      className="w-full py-2 px-4 bg-linear-to-r from-[#1d8ced] to-[#00f2fe] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                    >
+                      Edit
+                    </button>
+
+                    <button
+                      onClick={() => handleDelete(item._id)}
+                      className="w-full py-2 px-4 bg-linear-to-r from-[#ea1e1e] to-[#ff6c53] text-white font-semibold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
 
       {isOpen && (
         <div className="fixed inset-0  bg-black/40 backdrop-blur-md flex items-center justify-center z-50">
@@ -189,10 +196,7 @@ const MyListings = () => {
                 Edit Your Listing
               </h2>
 
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-4"
-              >
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
                     Product / Pet Name
