@@ -8,7 +8,8 @@ const Recent6 = ({ item }) => {
     <div>
       <div
         key={item._id}
-        className="group bg-white dark:bg-gray-800 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-transparent hover:border-[#ff6d2d] relative h-[450px]"
+        className="group bg-white dark:bg-gray-800 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-300 dark:border-gray-700 hover:border-[#ff6d2d] relative h-[450px]"
+
       >
         <img
           src={item.image}

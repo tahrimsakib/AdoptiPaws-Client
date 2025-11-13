@@ -11,7 +11,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router}></RouterProvider>
-      <Cursor size={24} color="bg-[#ff6d2d]" ring={false}/>
+      <Cursor size={24} color="border border-[#ff6d2d]" ring={false} />
       <ToastContainer
         position="top-left"
         autoClose={2000}

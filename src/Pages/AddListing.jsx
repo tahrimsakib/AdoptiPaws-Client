@@ -53,10 +53,10 @@ const AddListing = () => {
 
   return (
     <section className="max-w-3xl mx-auto px-5 py-16">
-       <title>AdoptiPaws | Add Listing</title>
+      <title>AdoptiPaws | Add Listing</title>
       <div className=" dark:bg-gray-900 rounded-3xl shadow-xl p-10 border border-gray-100 dark:border-gray-700 relative overflow-hidden">
-        <div className="absolute -top-10 -left-10 w-60 h-60 bg-gradient-to-br from-[#ffb08f]/60 to-[#ff6d2d]/30 blur-3xl rounded-full -z-10"></div>
-        <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-gradient-to-tr from-[#ffd1b3]/50 to-[#ff6d2d]/30 blur-3xl rounded-full -z-10"></div>
+        <div className="absolute -top-10 -left-10 w-60 h-60 bg-linear-to-br from-[#ffb08f]/60 to-[#ff6d2d]/30 blur-3xl rounded-full -z-10"></div>
+        <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-linear-to-tr from-[#ffd1b3]/50 to-[#ff6d2d]/30 blur-3xl rounded-full -z-10"></div>
 
         <h2 className="text-4xl font-extrabold text-center text-gray-900 dark:text-white mb-6">
           <span className="bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
@@ -159,7 +159,7 @@ const AddListing = () => {
               name="email"
               value={user?.email}
               readOnly
-              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-300 cursor-not-allowed"
+              className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-300 cursor-not-allowed font2"
             />
           </div>
 

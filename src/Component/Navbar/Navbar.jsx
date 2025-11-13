@@ -1,11 +1,11 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MyNavLink from "./MyNavlink";
 import { Link } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const { user, logOut } = use(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
@@ -49,14 +49,12 @@ const Navbar = () => {
             <MyNavLink to="/my-orders">My Orders</MyNavLink>
           </li>
         </>
-      ) : (
-        <></>
-      )}
+      ) : null}
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm dark:bg-[#181818]">
+    <div className="navbar bg-base-100 shadow-sm dark:bg-[#181818] relative z-[10000]">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -67,38 +65,37 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            tabIndex={-1}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[9999] mt-3 w-52 p-2 shadow"
           >
             {navlink}
           </ul>
         </div>
         <figure>
           <img
-            className="w-8 rounded-[10px]"
+            className="w-8 rounded-[10px] max-sm:hidden"
             src="/Gemini_Generated_Image_llkghsllkghsdfllkg.jpg"
             alt=""
           />
         </figure>
         <Link
           to="/"
-          className="ml-2 text-2xl lg:text-3xl font-semibold tracking-tight bg-linear-to-r from-[#ff8a5b] via-[#ffb37a] to-[#ffd3a3] bg-clip-text text-transparent drop-shadow-[0_1px_3px_rgba(255,138,91,0.35)] hover:drop-shadow-[0_2px_6px_rgba(255,138,91,0.55)] hover:scale-105 transition-all duration-300 ease-out flex items-center gap-1"
+          className="ml-2 max-sm:text-[20px] md:text-2xl lg:text-3xl font-semibold tracking-tight bg-linear-to-r from-[#ff8a5b] via-[#ffb37a] to-[#ffd3a3] bg-clip-text text-transparent drop-shadow-[0_1px_3px_rgba(255,138,91,0.35)] hover:drop-shadow-[0_2px_6px_rgba(255,138,91,0.55)] hover:scale-105 transition-all duration-300 ease-out flex items-center gap-1"
         >
           <span className="italic">Adopti</span>
           <span className="font-bold text-[#ff844a] dark:text-[#ff9c5a]">
             Paws
           </span>
-          <span className="animate-[heartbeat_1.8s_ease-in-out_infinite] text-lg">
+          <span className="animate-[heartbeat_1.8s_ease-in-out_infinite] text-lg max-sm:hidden">
             🐾
           </span>
         </Link>
@@ -123,7 +120,7 @@ const Navbar = () => {
               className="mt-3 z-[1000] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <Link>
-                <p className=" w-full font-semibold text-gray-700 dark:text-white text-center font2">
+                <p className="w-full font-semibold text-gray-700 dark:text-white text-center font2">
                   {user.displayName || "User"}
                 </p>
               </Link>
@@ -149,8 +146,7 @@ const Navbar = () => {
             onChange={(e) => handleTheme(e.target.checked)}
             type="checkbox"
             defaultChecked={localStorage.getItem("theme") === "dark"}
-            value="synthwave"
-            className="theme-controller "
+            className="theme-controller"
           />
 
           <svg

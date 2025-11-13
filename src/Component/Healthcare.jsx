@@ -10,7 +10,6 @@ const Healthcare = () => {
             alt="Pet Healthcare"
             className="w-full h-full object-cover shadow-2xl rounded-4xl"
           />
-          {/* <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-[#ff6d2d] rounded-full blur-3xl opacity-40"></div> */}
         </div>
 
         <div className="w-full md:w-2/2 space-y-6 pr-6">

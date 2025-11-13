@@ -81,7 +81,6 @@ const Register = () => {
         </h2>
 
         <form onSubmit={handleRegister}>
-          {/* Name Input */}
           <div className="mb-6">
             <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
               Name
@@ -94,7 +93,6 @@ const Register = () => {
             />
           </div>
 
-          {/* Email Input */}
           <div className="mb-6">
             <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
               Email
@@ -107,7 +105,6 @@ const Register = () => {
             />
           </div>
 
-          {/* Password Input */}
           <div className="mb-6">
             <label className="block text-gray-700 dark:text-gray-200 text-base mb-2 ">
               Password
@@ -120,7 +117,6 @@ const Register = () => {
             />
           </div>
 
-          {/* Photo URL Input */}
           <div className="mb-10">
             <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
               Photo URL
@@ -133,7 +129,6 @@ const Register = () => {
             />
           </div>
 
-          {/* Register Button */}
           <button
             type="submit"
             className="w-full bg-[#ff6d2d] text-white py-3 rounded-lg hover:bg-[#e65c1d] transition-colors mb-6 text-lg font-medium cursor-pointer"
@@ -141,7 +136,6 @@ const Register = () => {
             Register
           </button>
 
-          {/* Google Login Button */}
           <button
             onClick={handleGoogle}
             type="submit"
@@ -157,7 +151,6 @@ const Register = () => {
             </span>
           </button>
 
-          {/* Login Link */}
           <p className="text-center text-base text-gray-600 dark:text-gray-300 font2">
             Already have an account?{" "}
             <Link

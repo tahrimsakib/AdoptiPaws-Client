@@ -86,7 +86,7 @@ export default function Cursor({
   return (
     <motion.div
       style={{ x, y }}
-      className={`fixed left-0 top-0 z-[9999] pointer-events-none select-none`}
+      className={`fixed left-0 top-0 z-[9999] pointer-events-none select-none max-sm:hidden`}
       aria-hidden="true"
     >
       <motion.div

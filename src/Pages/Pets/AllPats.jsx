@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router";
+import { Link, useLoaderData, useSearchParams } from "react-router";
 import Loading from "../Loading/Loading";
 
 const AllPets = () => {
   const data = useLoaderData();
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  // const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
+
+  const [searchParams] = useSearchParams();
+  const initialCategory = searchParams.get("category") || "All";
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
 
   const categories = ["All", ...new Set(data.map((item) => item.category))];
 
@@ -93,7 +97,7 @@ const AllPets = () => {
           {filteredData.map((item) => (
             <div
               key={item._id}
-              className="group bg-white dark:bg-gray-800 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-transparent hover:border-[#ff6d2d] relative"
+              className="group bg-white dark:bg-gray-800 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-300 dark:border-gray-700 hover:border-[#ff6d2d] relative h-[450px]"
             >
               <img
                 src={item.image}
