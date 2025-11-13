@@ -18,7 +18,7 @@ const Recent6 = ({ item }) => {
         />
         <div className=" flex flex-col justify-between">
           <div className="p-6 space-y-3">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+            <h3 className=" lg:text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
               {item.name}
             </h3>
             <p className="text-sl text-gray-500 dark:text-gray-400 font2">
@@ -29,7 +29,7 @@ const Recent6 = ({ item }) => {
 
           <Link
             to={`/pets/${item._id}`}
-            className="w-fit inline-block mt-3 ml-6 px-5 py-2 bg-linear-to-r from-[#ff8a4c] to-[#ff611d] text-white text-sm rounded-full font-medium hover:shadow-md transition-all  "
+            className="w-fit inline-block lg:mt-3 ml-6 px-5 py-2 bg-linear-to-r from-[#ff8a4c] to-[#ff611d] text-white text-sm rounded-full font-medium hover:shadow-md transition-all  "
           >
             See Details →
           </Link>

@@ -228,15 +228,31 @@ const MyListings = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
-                    Price
-                  </label>
-                  <input
-                    type="number"
-                    defaultValue={selecteditem?.price}
-                    name="price"
-                    className="font2 w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800"
-                  />
+                    <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
+                        Price
+                      </label>
+                      <input
+                        type="text"
+                        defaultValue={selecteditem?.price}
+                        required
+                        name="price"
+                        placeholder="Enter price"
+                        className="font2 w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-gray-700 dark:text-gray-200 text-base mb-2">
+                        Points
+                      </label>
+                      <input
+                        type="number"
+                        defaultValue={99}
+                        min={0}
+                        placeholder="Enter points"
+                        name="points"
+                        className="font2 w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 dark:bg-gray-800"
+                      />
                 </div>
 
                 <div>

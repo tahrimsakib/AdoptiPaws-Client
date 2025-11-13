@@ -33,10 +33,9 @@ const AllPets = () => {
   });
 
   return (
-    <section className="max-w-7xl mx-auto px-5 py-16 relative">
+    <section className="max-w-7xl mx-auto px-5 py-16 relative overflow-x-hidden">
       <title>AdoptiPaws | Pets & Supplies</title>
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-linear-to-br from-[#ffd1b3]/60 to-[#ff6d2d]/40 blur-3xl rounded-full opacity-70 -z-10"></div>
-      <div className="absolute -bottom-24 -right-16 w-72 h-72 bg-linear-to-tr from-[#ffe0cc]/60 to-[#ff6d2d]/30 blur-3xl rounded-full opacity-60 -z-10"></div>
+
       <div className="text-center mb-10">
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-3">
           <span className="bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] bg-clip-text text-transparent">
@@ -67,7 +66,7 @@ const AllPets = () => {
           ))}
         </div>
 
-        <div className="relative w-3/5 md:w-4/5 lg:w-1/3">
+        <div className="relative w-full md:w-4/5 lg:w-1/3">
           <input
             type="text"
             placeholder="Search pets or supplies..."
@@ -105,7 +104,7 @@ const AllPets = () => {
                 className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="p-6 space-y-3">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                <h3 className="lg:text-xl font-semibold text-gray-900 dark:text-white">
                   {item.name}
                 </h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 font2">

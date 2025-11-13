@@ -89,7 +89,7 @@ const Navbar = () => {
         </figure>
         <Link
           to="/"
-          className="ml-2 max-sm:text-[20px] md:text-2xl lg:text-3xl font-semibold tracking-tight bg-linear-to-r from-[#ff8a5b] via-[#ffb37a] to-[#ffd3a3] bg-clip-text text-transparent drop-shadow-[0_1px_3px_rgba(255,138,91,0.35)] hover:drop-shadow-[0_2px_6px_rgba(255,138,91,0.55)] hover:scale-105 transition-all duration-300 ease-out flex items-center gap-1"
+          className="ml-2 max-sm:text-[18px] md:text-2xl lg:text-3xl font-semibold tracking-tight bg-linear-to-r from-[#ff8a5b] via-[#ffb37a] to-[#ffd3a3] bg-clip-text text-transparent drop-shadow-[0_1px_3px_rgba(255,138,91,0.35)] hover:drop-shadow-[0_2px_6px_rgba(255,138,91,0.55)] hover:scale-105 transition-all duration-300 ease-out flex items-center gap-1"
         >
           <span className="italic">Adopti</span>
           <span className="font-bold text-[#ff844a] dark:text-[#ff9c5a]">
@@ -136,8 +136,18 @@ const Navbar = () => {
           </div>
         ) : (
           <>
-            <MyNavLink to={"/auth/login"}>Login</MyNavLink>
-            <MyNavLink to={"/auth/register"}>Register</MyNavLink>
+            <Link
+              className="max-sm:text-[13px] md:text-[15px]"
+              to={"/auth/login"}
+            >
+              Login
+            </Link>
+            <Link
+              className="max-sm:text-[13px] md:text-[15px]"
+              to={"/auth/register"}
+            >
+              Register
+            </Link>
           </>
         )}
 
