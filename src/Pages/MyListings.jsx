@@ -292,7 +292,7 @@ const MyListings = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] text-white rounded-xl font-semibold hover:scale-[1.02] transition"
+                  className="w-full py-3 bg-linear-to-r from-[#ff8a4c] to-[#ff6d2d] text-white rounded-xl font-semibold hover:scale-[1.02] transition cursor-pointer"
                 >
                   Edit Listing
                 </button>
